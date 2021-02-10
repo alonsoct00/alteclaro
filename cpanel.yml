@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/alteclaro/public_html/stg/
+    - /bin/cp -R * $DEPLOYPATH
