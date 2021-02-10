@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Stacked Images style - begin
+   ========================================================================== */
+
+.qodef-stacked-images {
+	@include qodefRelativeLayout();
+	
+	.qodef-m-images {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+
+		.qodef-browser--ms-explorer & {
+			width: 100%;
+		}
+		
+		.qodef-e-stack-image {
+			position: absolute;
+			display: block;
+			bottom: -105px;
+			transition: all .7s cubic-bezier(0.23, 1, 0.32, 1);
+		}
+		
+		.qodef-e-main-image-holder {
+			overflow: hidden;
+			
+			.qodef-e-main-image-zoom-holder {
+				transition: all 1s ease-out .1s;
+				transform: scale(1.2);
+			}
+		}
+		
+		&.qodef--appeared {
+			.qodef-e-main-image-holder {
+				.qodef-e-main-image-zoom-holder {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+	
+	&.qodef-stack--left {
+		
+		.qodef-m-images {
+			margin: 0 0 0 30%;
+
+			.qodef-browser--ms-explorer & {
+				margin: 0;
+			}
+
+			&.qodef--appeared {
+				.qodef-e-stack-image {
+					bottom: 70px;
+					left: -48%;
+				}
+			}
+		}
+	}
+	
+	&.qodef-stack--right {
+		
+		.qodef-m-images {
+			margin: 0 27% 0 0;
+			
+			&.qodef--appeared {
+				.qodef-e-stack-image {
+					bottom: 70px;
+					right: -40%;
+				}
+			}
+		}
+	}
+	
+	&.qodef-stack--bottom {
+		
+		.qodef-m-images {
+			margin: 0 0 75px 0;
+			
+			.qodef-e-stack-image {
+				right: 15%;
+				max-width: 40%;
+			}
+			
+			&.qodef--appeared {
+				.qodef-e-stack-image {
+					bottom: -75px;
+				}
+			}
+		}
+	}
+}
+
+/* ==========================================================================
+   Stacked Images style - end
+   ========================================================================== */

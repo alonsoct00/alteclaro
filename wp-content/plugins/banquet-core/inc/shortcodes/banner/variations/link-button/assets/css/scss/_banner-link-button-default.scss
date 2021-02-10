@@ -1,0 +1,33 @@
+.qodef-banner {
+	
+	&.qodef-layout--link-button {
+		@include qodefScreenSize1024 {
+			cursor: pointer;
+		}
+		
+		.qodef-m-content-inner {
+			align-items: flex-start;
+			flex-direction: column;
+			justify-content: flex-end;
+			padding: 35px;
+
+			@include qodefScreenSize480 {
+				padding: 35px 30px 7px;
+			}
+		}
+		
+		.qodef-m-title {
+			margin: 0 0 10px;
+		}
+		
+		.qodef-m-text {
+			margin: 0;
+		}
+		
+		.qodef-m-button {
+			margin: 3px 0 0;
+			position: relative;
+			z-index: 3;
+		}
+	}
+}

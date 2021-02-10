@@ -1,0 +1,131 @@
+.qodef-header-navigation {
+	
+	ul {
+		
+		li {
+			
+			a {
+				
+				.qodef-menu-item-icon {
+					margin-right: 5px;
+					vertical-align: middle;
+				}
+			}
+			
+			.qodef-drop-down-second {
+				position: absolute;
+				top: 100%;
+				left: 0;
+				display: block;
+				width: 240px;
+				opacity: 0;
+				visibility: hidden;
+				overflow: hidden;
+				z-index: 10;
+				background-color: #fff;
+				transition: opacity .3s ease-out, visibility $transition-timing;
+				
+				&.qodef-drop-down--start {
+					opacity: 1;
+					visibility: visible;
+					overflow: visible;
+					z-index: 20;
+				}
+			}
+			
+			&.qodef-menu-item--wide {
+				
+				.qodef-drop-down-second {
+					
+					.qodef-drop-down-second--full-width & {
+						width: 100vw;
+					}
+					
+					.qodef-drop-down-second-inner {
+						padding: $full-width-side-padding;
+						
+						ul {
+							margin-top: 13px;
+							li {
+								padding: 3px 0;
+								a {
+									white-space: normal;
+								}
+							}
+						}
+						
+						> ul {
+							display: flex;
+							justify-content: space-around;
+							padding: 15px 0;
+							margin: 0;
+							> li {
+								flex: 1 1 25%;
+								padding: 0;
+								> a {
+									@include qodefHeadingStyle();
+									@include qodefH6Style();
+									letter-spacing: 0;
+									text-transform: none;
+								}
+							}
+						}
+					}
+				}
+			}
+			
+			&.qodef-menu-item--narrow {
+				.qodef-drop-down-second {
+					
+					&.qodef-drop-down--right {
+						left: auto;
+						right: -6px;
+					}
+				}
+				
+				.qodef-drop-down-second-inner {
+					@include qodefRelativeLayout();
+					
+					> ul {
+						position: relative;
+						top: auto;
+						opacity: 1;
+						visibility: visible;
+					}
+				}
+			}
+			
+			&.qodef-menu-item--narrow:last-child {
+				
+				.qodef-drop-down-second {
+					
+					&.qodef-drop-down--right {
+						left: auto;
+						right: -31px;
+					}
+				}
+			}
+		}
+	}
+	
+	/*.qodef-drop-down-second--animate-height &{
+		ul li>.qodef-drop-down-second {
+			&>.qodef-drop-down-second-inner>ul {
+				max-height: 0;
+				!*opacity: 0;*!
+				!*visibility: hidden;*!
+				overflow: hidden;
+				transition: .35s all .5s;
+			}
+			&.qodef-drop-down--start {
+				&>.qodef-drop-down-second-inner>ul {
+					!*max-height: unset;
+					opacity: 1;
+					visibility: visible;*!
+					overflow: visible;
+				}
+			}
+		}
+		!*.qodef-header-navigation ul li.qodef-menu-item--narrow ul*!
+	}*/
+}

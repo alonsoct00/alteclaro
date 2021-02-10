@@ -1,0 +1,414 @@
+.qodef-fullscreen-menu-opener-outer {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	justify-content: center;
+}
+
+.qodef-fullscreen-menu-opener {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	
+	.qodef-open-icon {
+		position: relative;
+		visibility: visible;
+	}
+	
+	.qodef-close-icon {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		visibility: hidden;
+		transform: translate(-50%, -50%);
+	}
+	
+	&.qodef-fullscreen-menu-opener--icon-pack {
+		font-size: 35px;
+		
+		* {
+			display: inline-block;
+			line-height: inherit;
+			
+			&:before {
+				display: inline-block;
+				line-height: inherit;
+			}
+		}
+	}
+	
+	&.qodef-fullscreen-menu-opener--svg-path {
+		
+		span {
+			position: relative;
+			
+			> * {
+				vertical-align: middle;
+			}
+			
+			> *,
+			path {
+				fill: currentColor;
+				stroke: currentColor;
+			}
+		}
+	}
+	
+	&.qodef-fullscreen-menu-opener--predefined {
+		line-height: 1;
+		
+		.qodef-lines {
+			position: relative;
+			display: block;
+			width: 52px;
+			height: 52px;
+			
+			.qodef-line {
+				position: absolute;
+				height: 1px;
+				width: 42px;
+				background-color: currentColor;
+				transition: top .3s ease, transform .3s ease;
+				
+				&.qodef-line-1 {
+					top: 20px;
+					right: 0;
+				}
+				
+				&.qodef-line-2 {
+					bottom: 20px;
+					left: 0;
+				}
+			}
+		}
+		
+		
+	}
+	
+	.qodef-header--light:not(.qodef-fullscreen-menu--opened) & {
+		&.qodef-fullscreen-menu-opener--predefined .qodef-line {
+			background-color: #fff;
+		}
+		
+		&.qodef-fullscreen-menu-opener--icon-pack .qodef-side-area-opener-icon {
+			color: #fff;
+		}
+		
+		&.qodef-fullscreen-menu-opener--svg-path .qodef-side-menu-icon {
+			> *,
+			path {
+				fill: #fff;
+				stroke: #fff;
+			}
+		}
+	}
+	
+	.qodef-header--dark:not(.qodef-fullscreen-menu--opened) & {
+		&.qodef-fullscreen-menu-opener--predefined .qodef-line {
+			background-color: #000;
+		}
+		
+		&.qodef-fullscreen-menu-opener--icon-pack .qodef-side-area-opener-icon {
+			color: #000;
+		}
+		
+		&.qodef-fullscreen-menu-opener--svg-path .qodef-side-menu-icon {
+			> *,
+			path {
+				fill: #000;
+				stroke: #000;
+			}
+		}
+	}
+}
+
+.qodef-fullscreen-menu-holder{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden !important;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 99; /* smaller than header, bigger than content */
+	background-color: #fff;
+	
+	.qodef-fullscreen-menu-holder-inner{
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		
+		@media screen and (min-width: 681px){
+			overflow: hidden;
+		}
+	}
+	
+	.qodef-content-grid{
+		height: 100%;
+		
+		nav.qodef-fullscreen-menu {
+			width: 100%;
+		}
+	}
+	
+	nav.qodef-fullscreen-menu {
+		position: relative;
+		top: 0;
+		margin: 0 auto;
+		text-align: left;
+		
+		ul {
+			position: relative;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 33%;
+			display: inline-block;
+			
+			@include qodefScreenSize680 {
+				width: 100% !important;
+			}
+			
+			li {
+				margin: 0;
+				padding: 14px 27% 14px 0;
+				position: relative;
+				
+				@include qodefScreenSize680 {
+					padding: 14px 0 14px 0;
+				}
+				
+				a {
+					position: relative;
+					display: inline-block;
+					vertical-align: middle;
+					color: $link-color;
+					font-family: $text-font;
+					font-weight: 500;
+					letter-spacing: .3em;
+					text-transform: uppercase;
+					
+					@media only screen and (min-width: $screen-size-1025) {
+						&:hover {
+							color: $heading-color;
+						}
+					}
+				}
+				
+				@media screen and (min-width: 681px) {
+					.sub-menu {
+						position: absolute;
+						top: 0;
+						left: 100%;
+						display: block;
+						opacity: 0;
+						visibility: hidden;
+						overflow: hidden;
+						z-index: 10;
+						transition: opacity .3s ease-out, visibility $transition-timing;
+						width: auto;
+					}
+				}
+				
+				@include qodefScreenSize680 {
+					
+					.sub-menu {
+						display: none;
+					}
+				}
+				
+				&.menu-item-has-children {
+					
+					& > .qodef-menu-arrow {
+						position: absolute;
+						top: 16px;
+						right: 5%;
+						display: block;
+						width: 40px;
+						height: 28px;
+						font-size: 16px;
+						line-height: 28px;
+						cursor: pointer;
+						color: #b0adaa;
+						
+						@include qodefScreenSize680 {
+							display: none !important;
+						}
+						
+						&:after {
+							color: inherit;
+							display: block;
+							line-height: inherit;
+							content: '\35';
+							font-family: ElegantIcons;
+							font-style: normal;
+							text-align: left;
+							transition: transform 0.3s ease;
+							transform-origin: center center;
+						}
+					}
+					
+					&:hover {
+						
+						@media screen and (min-width: 681px){
+							> .qodef-drop-down-second > .qodef-drop-down-second-inner > .sub-menu,
+							> .sub-menu {
+								opacity: 1;
+								visibility: visible;
+								overflow: visible;
+								z-index: 20;
+							}
+						}
+					}
+				}
+				
+				&.current-menu-ancestor > a,
+				&.current-menu-item > a {
+					color: $heading-color;
+				}
+				
+				ul {
+					padding: 14px 0 14px 0;
+					
+					@include qodefScreenSize680 {
+						padding: 14px 0 14px 14px;
+					}
+					
+					li {
+						padding: 0 27% 8px 0;
+						
+						@include qodefScreenSize680 {
+							padding: 0 0 8px !important;
+						}
+						
+						&.menu-item-has-children {
+							
+							& > .qodef-menu-arrow {
+								top: 1px;
+							}
+						}
+						
+						&.current-menu-ancestor > a,
+						&.current-menu-item > a {
+							color:  $heading-color;
+						}
+						
+						ul {
+							padding: 0;
+							
+							@include qodefScreenSize680 {
+								padding: 14px 0 14px 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.qodef-fullscreen-menu--opened {
+	
+	.qodef-page-border--left,
+	.qodef-page-border--right {
+		visibility: hidden;
+		opacity: 0;
+	}
+	
+	.qodef-fullscreen-menu-opener {
+		.qodef-open-icon {
+			visibility: hidden;
+		}
+		
+		.qodef-close-icon {
+			visibility: visible;
+			
+			.qodef-lines {
+				width: 45px;
+				height: 45px;
+				
+				.qodef-line {
+					
+					&.qodef-line-1 {
+						transform: rotate(45deg);
+						top: 50%;
+						left: 0;
+						right: initial;
+						bottom: initial;
+					}
+					
+					&.qodef-line-2 {
+						transform: rotate(-45deg);
+						top: 50%;
+						left: 0;
+						right: initial;
+						bottom: initial;
+					}
+				}
+			}
+		}
+	}
+	
+	#qodef-page-header,
+	#qodef-page-mobile-header{
+		visibility: hidden;
+	}
+	
+	.qodef-header-logo-link,
+	.qodef-mobile-header-logo-link,
+	.qodef-header-logo-image.qodef--customizer,
+	.qodef-fullscreen-menu-opener {
+		visibility: visible;
+	}
+	
+	#qodef-page-header .qodef-header-logo-link img{
+		&.qodef--light{
+			opacity: 1;
+		}
+		
+		&.qodef--main,
+		&.qodef--dark{
+			opacity: 0;
+		}
+	}
+	
+}
+
+
+@keyframes fullscreen-fade-out {
+	0% {
+		opacity: 1;
+		visibility: visible
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden
+	}
+}
+
+@keyframes fullscreen-fade-in {
+	0% {
+		opacity: 0;
+		visibility: hidden
+	}
+	100% {
+		opacity: 1;
+		visibility: visible
+	}
+}
+.qodef-fullscreen-menu-animate--in{
+	.qodef-fullscreen-menu-holder {
+		animation: fullscreen-fade-in .25s linear both;
+	}
+}
+
+.qodef-fullscreen-menu-animate--out{
+	.qodef-fullscreen-menu-holder {
+		animation: fullscreen-fade-out .25s linear both;
+	}
+}

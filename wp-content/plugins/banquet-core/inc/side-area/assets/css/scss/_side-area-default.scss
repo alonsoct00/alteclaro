@@ -1,0 +1,249 @@
+/* ==========================================================================
+# Side Area style - begin
+========================================================================== */
+%sidearea-lines  {
+	.qodef-lines {
+		position: relative;
+		display: block;
+		width: 52px;
+		height: 52px;
+		
+		.qodef-line {
+			position: absolute;
+			height: 1px;
+			width: 42px;
+			background-color: currentColor;
+			transition: top .3s ease, transform .3s ease;
+			
+			&.qodef-line-1 {
+				top: 20px;
+				right: 0;
+			}
+			
+			&.qodef-line-2 {
+				bottom: 20px;
+				left: 0;
+			}
+		}
+	}
+}
+
+%sidearea-hover-lines {
+	.qodef-lines {
+		.qodef-line {
+			&.qodef-line-1 {
+				transform: translateX(-5px);
+			}
+			
+			&.qodef-line-2 {
+				transform: translateX(5px);
+			}
+		}
+	}
+}
+
+
+.qodef-side-area-opener {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	
+	.qodef-side-area-opener-icon {
+		display: block;
+	}
+	
+	&:hover {
+		color: $main-color;
+	}
+	
+	&.qodef-side-area-opener--icon-pack {
+		
+		.qodef-side-area-opener-icon {
+			font-size: 35px;
+			
+			* {
+				display: block;
+				line-height: inherit;
+				
+				&:before {
+					display: block;
+					line-height: inherit;
+				}
+			}
+		}
+	}
+	
+	&.qodef-side-menu-opener--svg-path {
+		
+		.qodef-side-area-opener-icon {
+			
+			> * {
+				vertical-align: middle;
+			}
+			
+			> *,
+			path {
+				fill: currentColor;
+				stroke: currentColor;
+			}
+		}
+	}
+	
+	&.qodef-side-area-opener--predefined {
+		line-height: 1;
+		@extend %sidearea-lines;
+		
+		&:hover{
+			@extend	%sidearea-hover-lines;
+		}
+	}
+	
+	.qodef-header--light & {
+		&.qodef-side-area-opener--predefined .qodef-line {
+			background-color: #fff;
+		}
+		
+		&.qodef-side-area-opener--icon-pack .qodef-side-area-opener-icon {
+			color: #fff;
+		}
+		
+		&.qodef-side-menu-opener--svg-path .qodef-side-menu-icon {
+			> *,
+			path {
+				fill: #fff;
+				stroke: #fff;
+			}
+		}
+	}
+	
+	.qodef-header--dark & {
+		&.qodef-side-area-opener--predefined .qodef-line {
+			background-color: #000;
+		}
+		
+		&.qodef-side-area-opener--icon-pack .qodef-side-area-opener-icon {
+			color: #000;
+		}
+		
+		&.qodef-side-menu-opener--svg-path .qodef-side-menu-icon {
+			> *,
+			path {
+				fill: #000;
+				stroke: #000;
+			}
+		}
+	}
+}
+
+#qodef-side-area {
+	position: fixed;
+	top: 0;
+	right: -400px;
+	width: 400px;
+	height: 100%;
+	min-height: 100%;
+	padding: 140px 42px 35px;
+	background-color: #fff;
+	overflow: hidden;
+	visibility: hidden;
+	z-index: 9999;
+	transition: all .6s cubic-bezier(.77, 0, .175, 1);
+	border-left: 1px solid #eeeeee;
+	
+	#qodef-side-area-close {
+		position: absolute;
+		top: 27px;
+		right: 52px;
+		display: block;
+		z-index: 1000;
+		
+		.admin-bar & {
+			top: 52px;
+		}
+		
+		&.qodef-side-area-close--icon-pack {
+			font-size: 35px;
+			
+			* {
+				display: block;
+				line-height: inherit;
+				
+				&:before {
+					display: block;
+					line-height: inherit;
+				}
+			}
+		}
+		
+		&.qodef-side-area-close--svg-path {
+			
+			> * {
+				vertical-align: middle;
+			}
+			
+			> *,
+			path {
+				fill: currentColor;
+				stroke: currentColor;
+			}
+		}
+		
+		&.qodef-side-area-close--predefined {
+			line-height: 1;
+			
+			@extend %sidearea-lines;
+			
+			
+			.qodef-lines {
+				width: 45px;
+				height: 45px;
+				
+				.qodef-line {
+					
+					&.qodef-line-1 {
+						transform: rotate(45deg);
+						top: 50%;
+						left: 0;
+						right: initial;
+						bottom: initial;
+					}
+					
+					&.qodef-line-2 {
+						transform: rotate(-45deg);
+						top: 50%;
+						left: 0;
+						right: initial;
+						bottom: initial;
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-side-area--opened & {
+		right: 0;
+		visibility: visible;
+	}
+}
+
+.qodef-side-area-cover {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	overflow: hidden;
+	z-index: 0;
+	transition: opacity 0.2s ease-in-out, z-index 0.2s ease-in-out;
+	
+	.qodef-side-area--opened & {
+		opacity: 1;
+		z-index: 1002;
+	}
+}
+
+/* ==========================================================================
+# Side Area style - end
+========================================================================== */

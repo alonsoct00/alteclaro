@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Image With Text shortcode styles
+   ========================================================================== */
+
+.qodef-image-with-text {
+	@include qodefRelativeLayout();
+	
+	.qodef-m-image {
+		@include qodefRelativeLayout();
+		box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+		-webkit-box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+		-moz-box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+		@include qodefTransition(all 0.3s ease-in-out);
+
+		a, img {
+			position: relative;
+			display: block;
+		}
+
+	}
+	
+	.qodef-m-content {
+		@include qodefRelativeLayout();
+	}
+	
+	.qodef-m-title {
+		margin: 24px 0 0;
+		text-align: center;
+	}
+	
+	.qodef-m-text {
+		margin: 15px 0 0;
+		text-align: center;
+	}
+
+	&.qodef-action--custom-link {
+		.qodef-m-image {
+			&:hover {
+				-webkit-transform: translate(0, -5px);
+				@include qodefTransform(translate(0, -5px));
+			}
+		}
+	}
+	/***** Scrolling Image Behavior Style - begin *****/
+
+	&.qodef-action--scrolling-image {
+
+		.qodef-m-image-holder {
+			position: relative;
+			overflow: hidden;
+
+			.qodef-m-image-holder-inner {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+
+				a {
+					position: absolute;
+					top: 0;
+					left: 0;
+					height: 100%;
+					width: 100%;
+					z-index: 100;
+				}
+			}
+
+			.qodef-e-frame {
+				vertical-align: middle;
+			}
+		}
+
+		&.qodef-scrolling--vertical {
+
+			.qodef-m-image-holder-inner {
+
+				.qodef-e-main-image {
+					width: 100%;
+					// min-height: 100%;
+				}
+			}
+		}
+
+		&.qodef-scrolling--horizontal {
+
+			.qodef-m-image-holder-inner {
+
+				.qodef-e-main-image {
+					max-width: unset;
+					height: 100%;
+					width: auto;
+				}
+			}
+		}
+	}
+
+	/***** Scrolling Image Behavior Style - end *****/
+}

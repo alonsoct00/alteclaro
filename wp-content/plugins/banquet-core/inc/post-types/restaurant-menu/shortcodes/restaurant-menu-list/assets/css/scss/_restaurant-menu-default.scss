@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Restaurant Menu shortcode styles
+   ========================================================================== */
+
+.qodef-restaurant-menu-list {
+	
+	.qodef-e-heading {
+		display: flex;
+		align-items: baseline;
+	}
+	
+	.qodef-e-heading-title {
+		margin: 0;
+	}
+	
+	.qodef-e-heading-line {
+		flex-grow: 1;
+		border-bottom: 1px solid #7c7f70;
+		margin: 0 10px;
+	}
+	
+	.qodef-e-heading-price {
+		margin: 0;
+		font-size: 17px;
+	}
+	
+	.qodef-e-description {
+		margin: -3px 0 0;
+		color: $text-color;
+		font-size: 15px;
+		margin-bottom: 5px;
+	}
+}

@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Team lists shortcode styles
+   ========================================================================== */
+
+.qodef-team-list {
+	
+	.qodef-e-role {
+		@include qodefSubtitleStyle();
+		line-height: 18px;
+		margin: 0;
+	}
+	
+	.qodef-team-member-social-links {
+		@include qodefSubtitleStyle();
+
+		a{
+			color: inherit;
+
+			&:hover{
+				color: $main-color;
+			}
+		}
+	}
+
+	.qodef-e-content{
+		margin-top: 22px;
+	}
+	
+	.qodef-e-content,
+	.qodef-e-hover-content{
+		text-align: center;
+	}
+}

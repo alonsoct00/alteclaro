@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Testimonials responsive styles
+   ========================================================================== */
+
+@include qodefScreenSize1024 {
+
+	.qodef-testimonials-list {
+		.qodef-e-text {
+			margin: 0 50px 60px;
+		}
+	}
+}
+@include qodefScreenSize768 {
+
+	.qodef-testimonials-list {
+		.qodef-e-text {
+			margin: 0 84px 60px;
+		}
+	}
+}
+@include qodefScreenSize480 {
+
+	.qodef-testimonials-list {
+		.qodef-e-text {
+			margin: 0 15px 60px;
+		}
+	}
+}

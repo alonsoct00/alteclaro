@@ -1,0 +1,15 @@
+.qodef-image-gallery {
+
+	&.qodef-swiper-container{
+
+		.swiper-slide {
+
+			img {
+				box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+				-webkit-box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+				-moz-box-shadow: 5px 9px 43.61px 5.39px rgba(0, 0, 0, 0.06);
+			}
+		}
+	}
+
+}
