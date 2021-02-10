@@ -1,0 +1,61 @@
+.qodef-team-list {
+
+	&.qodef-item-layout--info-on-hover {
+		.qodef-e {
+
+			.qodef-e-image-content{
+				position: relative;
+			}
+
+			.qodef-e-hover-content {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				background-color: rgba(255, 255, 255, 0.95);
+				opacity: 0;
+				transition: opacity .4s ease-out;
+				padding: 20px 33px;
+
+				.qodef-e-brief-info{
+					margin: 0;
+					width: 100%;
+				}
+
+				.qodef-team-member-social-links{
+					margin-top: 25px;
+					opacity: 0;
+					transform: translateY(5px);
+					transition: .35s ease-out;
+					transition-delay: 0s;
+				}
+
+				.qodef-team-member-social-link{
+					display: block;
+					line-height: 26px;
+				}
+			}
+
+			&:hover {
+				.qodef-e-hover-content {
+					opacity: 1;
+					
+					.qodef-team-member-social-links{
+						opacity: 1;
+						transform: translateY(0);
+						transition-delay: .15s;
+					}
+				}
+			}
+
+			.qodef-e-title {
+				margin: 2px 0 0;
+			}
+		}
+	}
+}

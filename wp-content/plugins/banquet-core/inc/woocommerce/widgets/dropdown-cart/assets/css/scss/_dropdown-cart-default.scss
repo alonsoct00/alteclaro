@@ -1,0 +1,230 @@
+/* ==========================================================================
+   WooCommerce DropDown Cart styles
+   ========================================================================== */
+
+$wp-widgets-area-map: (
+	'#qodef-page-sidebar': (
+		text-color: null,
+		link-color: null,
+		link-hover-color: null
+	),
+	'#qodef-top-area': (
+		text-color: $text-color,
+		link-color: $text-color,
+		link-hover-color: $main-color,
+	)
+);
+
+.widget_banquet_core_woo_dropdown_cart {
+	height: 100%;
+}
+
+.qodef-woo-dropdown-cart {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	height: 100%;
+	padding: 0 20px;
+	
+	.qodef-m-inner {
+		@include qodefRelativeLayout();
+		height: 100%;
+	}
+	
+	.qodef-m-opener {
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 100%;
+		font-size: 13px;
+		letter-spacing: .3em;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: $heading-color;
+		@include qodefUnderline(currentColor, .35s, calc(50% - 10px));
+		
+		&:hover{
+			&:before{
+				width: 95%;
+			}
+		}
+	}
+	
+	.qodef-m-dropdown {
+		position: absolute;
+		top: 100%;
+		left: auto;
+		right: 0;
+		text-align: left;
+		opacity: 0;
+		visibility: hidden;
+		transition: $opacity-transition, visibility $transition-timing;
+	}
+	
+	.qodef-m-dropdown-inner {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		width: 357px;
+		padding: 20px;
+		background-color: #fff;
+		border: 1px solid #ededed;
+	}
+	
+	.qodef-woo-dropdown-items {
+		@include qodefRelativeLayout();
+		
+		@each $key, $values in $wp-widgets-area-map {
+			
+			#{$key} & {
+				@if (map-get($values, 'text-color') != null) {
+					color: map-get($values, 'text-color');
+				}
+				
+				@if (map-get($values, 'link-color') != null) {
+					a {
+						color: map-get($values, 'link-color');
+						
+						@if (map-get($values, 'link-hover-color') != null) {
+							&:hover {
+								color: map-get($values, 'link-hover-color');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.qodef-woo-dropdown-item {
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		margin-top: 23px;
+		
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	
+	.qodef-e-image {
+		flex-shrink: 0;
+		width: 80px;
+		margin-right: 20px;
+		
+		a, img {
+			display: block;
+		}
+	}
+	
+	.qodef-e-content {
+		@include qodefRelativeLayout();
+		padding-right: 20px;
+	}
+	
+	.qodef-e-title {
+		margin: 0;
+		a {
+			color: $heading-color;
+		}
+	}
+	
+	.qodef-e-price {
+		margin: 0;
+		line-height: 25px;
+	}
+	
+	.qodef-e-quantity {
+		margin: 3px 0 0 0;
+		font-size: 12px;
+		text-transform: uppercase;
+	}
+	
+	.qodef-e-remove {
+		position: absolute;
+		top: 7px;
+		right: 0;
+		font-size: 20px;
+		line-height: 1;
+	}
+	
+	.qodef-m-order-details {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 35px;
+		
+		> * {
+			margin: 0;
+			font-family: $text-font;
+			font-size: 12px;
+			text-transform: uppercase;
+			color: $text-color;
+			font-style: normal;
+			letter-spacing: 0.3em;
+			font-weight: 500;
+		}
+		.qodef-m-order-amount {
+			font-size: 18px;
+			font-weight: 400;
+			letter-spacing: 0;
+		}
+		
+		@each $key, $values in $wp-widgets-area-map {
+			
+			#{$key} & {
+				@if (map-get($values, 'text-color') != null) {
+					color: map-get($values, 'text-color');
+				}
+			}
+		}
+	}
+	
+	.qodef-m-action {
+		@include qodefRelativeLayout();
+		margin-top: 15px;
+	}
+	
+	.qodef-m-action-link {
+		@include qodefButtonDefaultStyle();
+		@include qodefButtonSize(full-width);
+		@include qodefButtonFilledColor();
+		
+		&:hover {
+			@include qodefButtonFilledHoverColor();
+		}
+	}
+	.qodef-m-action {
+		@include qodefRelativeLayout();
+		font-size: 0;
+
+		.qodef-m-action-link {
+			@include qodefButtonDefaultStyle();
+			line-height: 35px;
+			width: calc(50% - 5px);
+			text-align: center;
+			font-size: 11px;
+			margin-right: 5px;
+			@include qodefButtonOutlinedColor();
+			color: $heading-color !important;
+
+			&:hover {
+				@include qodefButtonOutlinedHoverColor();
+				color: #fff !important;
+			}
+
+		}
+	}
+	.touchevents & {
+		cursor: pointer;
+	}
+	
+	&:hover {
+		
+		.qodef-m-dropdown {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

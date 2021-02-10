@@ -1,0 +1,21 @@
+.qodef-button {
+    &.qodef-layout--textual {
+        padding: 0 !important;
+        font-size: 11px;
+        line-height: 40px;
+        color: #696359;
+        text-transform: uppercase;
+        font-weight: 600;
+        background-color: transparent;
+        letter-spacing: .3em;
+        border: 0;
+        overflow: hidden;
+
+        .qodef-m-text {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @include qodefButtonLinePseudos($active: true);
+    }
+}

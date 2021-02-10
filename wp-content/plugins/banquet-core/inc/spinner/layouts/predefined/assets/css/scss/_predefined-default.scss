@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Spinner layout styles
+   ========================================================================== */
+
+#qodef-page-spinner {
+	&.qodef-layout--predefined {
+		
+		.qodef-m-predefined {
+			/*position: relative;
+			width: 100px;
+			height: 100px;
+			margin: -50px 0 0 -50px;*/
+		}
+		
+		.qodef-predefined-spinner-text {
+			display: flex;
+			@include qodefHeadingStyle(h3);
+			color: unset;
+			opacity: 0;
+		}
+		
+		.qodef-e-character {
+			opacity: 0;
+		}
+	}
+}
+
+
+@include keyframes(qodef-fade-in) {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}

@@ -1,0 +1,15 @@
+.qodef-team-list {
+	&.qodef-item-layout--info-below {
+		.qodef-e {
+			.qodef-e-content {
+				.qodef-e-title {
+					margin: 2px 0 13px;
+				}
+
+				.qodef-team-member-social-links a {
+					padding: 0 5px;
+				}
+			}
+		}
+	}
+}

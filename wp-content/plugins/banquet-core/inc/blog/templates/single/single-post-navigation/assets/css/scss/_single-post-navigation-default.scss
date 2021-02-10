@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Single Post Navigation styles
+   ========================================================================== */
+
+#qodef-single-post-navigation {
+	@include qodefRelativeLayout();
+	margin: 15px 0 46px;
+	
+	.qodef-m-inner {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 42px;
+	}
+	
+	.qodef-social-share {
+		position: absolute;
+		width: 80%;
+		left: 10%;
+		text-align: center;
+
+		.qodef-browser--ms-explorer & {
+			top: 0;
+		}
+		
+		ul {
+			font-size: 0;
+			vertical-align: middle;
+			
+			li {
+				margin: 0 10px;
+				transform: translateY(-2px);
+				line-height: inherit;
+			}
+		}
+	}
+	
+	.qodef-m-nav {
+		position: relative;
+		display: flex;
+		align-items: center;
+		
+		> * {
+			display: block;
+			line-height: inherit;
+		}
+		
+		&.qodef--prev,
+		&.qodef--next{
+			transition: .25s ease-out;
+			transform: translateX(0);
+		}
+		
+		&.qodef--prev {
+			left: -10px;
+			
+			.qodef-icon-elegant-icons {
+				margin-right: 4px;
+			}
+			
+			&:hover{
+				transform: translateX(-1px) translateZ(0);
+				color: $link-color;
+			}
+		}
+		
+		&.qodef--next {
+			flex-direction: row-reverse;
+			right: -10px;
+			margin-left: auto;
+			text-align: right;
+			
+			.qodef-icon-elegant-icons {
+				margin-left: 4px;
+			}
+			
+			&:hover{
+				transform: translateX(1px) translateZ(0);
+				color: $link-color;
+			}
+		}
+	}
+	
+	.qodef-icon-elegant-icons {
+		font-size: 30px;
+	}
+	
+	.qodef-m-nav-label {
+		font-size: 20px;
+	}
+}

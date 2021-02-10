@@ -1,0 +1,56 @@
+/* Standard header layout style - start */
+
+#qodef-page-header-inner {
+	
+	//.qodef-header-standard--right & {
+	//
+	//	.qodef-header-logo-link {
+	//		margin-right: auto;
+	//	}
+	//}
+	
+	.qodef-header-standard--left & {
+		justify-content: flex-start;
+		
+		.qodef-header-navigation {
+			margin-left: 20px;
+		}
+		
+		.qodef-widget-holder {
+			margin-left: auto;
+		}
+	}
+	.qodef-header-standard--right & {
+		justify-content: flex-end;
+
+		.qodef-header-navigation {
+			margin-right: 20px;
+		}
+
+		.qodef-header-logo-wrapper {
+			margin-right: auto;
+
+			&.qodef-browser--ms-explorer & {
+				margin-right: 0 !important;
+			}
+		}
+	}
+}
+.qodef-header-standard--right {
+
+	&.qodef-browser--ms-explorer  {
+
+		#qodef-page-header-inner  {
+			justify-content: space-between;
+
+			.qodef-header-logo-wrapper {
+
+				margin-right: 0 !important;
+				width: auto !important;
+				padding-left: 25px !important;
+			}
+		}
+
+	}
+}
+/* Standard header layout style - end */

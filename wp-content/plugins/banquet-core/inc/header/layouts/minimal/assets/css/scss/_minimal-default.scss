@@ -1,0 +1,23 @@
+/* Minimal header layout style - start */
+
+#qodef-page-header-inner {
+	
+	.qodef-header--minimal & {
+
+		//.qodef-header-logo-link {
+		//	margin-right: auto;
+		//}
+		
+		.qodef-widget-holder {
+			margin-right: 30px;
+		}
+	}
+
+	.qodef--page-has-borders.qodef-header--minimal & {
+		.qodef-header-logo-wrapper {
+			margin-right: auto;
+		}
+	}
+}
+
+/* Minimal header layout style - end */

@@ -1,0 +1,41 @@
+#qodef-page-header {
+
+	.qodef-header-navigation > ul > li > a {
+
+		.qodef-header--light & {
+			color: #fff;
+
+		}
+
+		.qodef-header--dark & {
+			color: #000;
+		}
+	}
+	.qodef-header-navigation > ul#qodef-sticky-navigation-menu > li > a {
+		color: $heading-color;
+	}
+	.qodef-widget-holder {
+		display: flex;
+		align-items: center;
+		height: 100%;
+
+		.widget {
+			margin: 0 0 0 12px;
+
+			&.widget_banquet_core_side_area_opener{
+				margin: 0 0 0 48px;
+			}
+
+			&.widget_banquet_core_search_opener {
+				margin: 0 0 0 35px;
+			}
+		}
+	}
+}
+
+#qodef-page-header-inner {
+
+	&.qodef-content-grid {
+		padding: 0;
+	}
+}
