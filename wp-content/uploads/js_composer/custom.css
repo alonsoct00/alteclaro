@@ -1,0 +1,56 @@
+.vc-gitem-zone-height-mode-auto:before{
+    padding-top: 0px ! important;
+}
+
+.grid-workshop-item .wpb_single_image {
+    width: 100%;
+    max-height: 160px;
+    height: 160px;
+    overflow-y: hidden;
+}
+
+.grid-workshop-item .vc_gitem-post-data-source-post_title,
+.grid-workshop-item .vc_gitem-post-data-source-post_excerpt{
+    display: block;
+    clear: both;
+    float: none;
+}
+
+.grid-workshop-item .bg-workshop-img {
+    height: 160px;
+    background-size: cover;
+}
+
+.grid-workshop-item .top-feature-img{
+    display: none !important;
+}
+
+.grid-workshop-item .vc_gitem-row-position-top{
+    position: relative !important;
+}
+
+.vc_gitem-zone-a .vc_gitem-row-position-top, 
+.vc_gitem-zone-b .vc_gitem-row-position-top {
+    position: relative;
+}
+
+.grid-workshop-item .vc_gitem-zone-mini {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    float: none;
+    flex: 0 0 100%;
+}
+
+.grid-workshop-item .currency-acf:after {
+    content: " mxn";
+    text-transform: uppercase;
+    display: initial;
+}
+
+.grid-workshop-item .currency-acf:before {
+    content: "$ ";
+    display: initial;
+}
