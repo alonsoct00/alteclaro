@@ -8,14 +8,24 @@ if ( ! empty( $link_url ) ) {
 	$title_tag = isset( $title_tag ) && ! empty( $title_tag ) ? $title_tag : 'h4';
 	?>
 <div>
-	<h3>
-		<?php the_title(); ?>
-	</h3>
-	<p>
-		<?php the_excerpt(); ?>
-	</p>
+	<div class="blog-media">
+		<?php
+		// Include post media
+		banquet_template_part( 'blog', 'templates/parts/post-info/media' );
+		?>
+	</div>
+    <h3>
+        <?php the_title(); ?>
+    </h3>
+    <p>
+        <?php the_excerpt(); ?>
+    </p>
+    <div class="qodef-e-link">
+        <<?php echo esc_attr( $title_tag ); ?> class="qodef-e-link-text"><?php echo esc_html( $link_text ); ?></<?php echo esc_attr( $title_tag ); ?>>
+		<a itemprop="url" class="qodef-e-link-url" href="<?php echo esc_url( $link_url ); ?>" target="_blank"></a>
+    </div>
 </div>
-	<div class="qodef-e-link">
+<!--<div class="qodef-e-link">
 		<div class="qodef-e-link-svg-holder">
 			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="42.986px" height="42.991px" viewBox="-0.5 -0.5 42.986 42.991" enable-background="new -0.5 -0.5 42.986 42.991" xml:space="preserve">
 				<g>
@@ -38,5 +48,5 @@ if ( ! empty( $link_url ) ) {
 		</div>
 		<<?php echo esc_attr( $title_tag ); ?> class="qodef-e-link-text"><?php echo esc_html( $link_text ); ?></<?php echo esc_attr( $title_tag ); ?>>
 		<a itemprop="url" class="qodef-e-link-url" href="<?php echo esc_url( $link_url ); ?>" target="_blank"></a>
-	</div>
+	</div>-->
 <?php } ?>

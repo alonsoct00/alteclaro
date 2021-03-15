@@ -41,7 +41,7 @@
 				?>
 				<?php if( get_field('wa_link') ): ?>
 				<div class="wp-block-button">
-				<a href="<?php the_field('wa_link'); ?>" class="wp-block-button__link">Informes &gt;</a>
+				<a href="<?php the_field('wa_link'); ?>" class="wp-block-button__link" target="_blank">Informes &gt;</a>
 				</div>
 				<?php endif; ?>
 				

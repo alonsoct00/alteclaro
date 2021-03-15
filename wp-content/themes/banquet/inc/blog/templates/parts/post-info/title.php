@@ -1,5 +1,5 @@
 <?php
-$title_tag = isset( $title_tag ) && ! empty( $title_tag ) ? $title_tag : 'h3';
+$title_tag = isset( $title_tag ) && ! empty( $title_tag ) ? $title_tag : 'h2';
 ?>
 <<?php echo esc_attr( $title_tag ); ?> itemprop="name" class="qodef-e-title entry-title">
 	<?php if ( ! is_single() ) { ?>
